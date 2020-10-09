@@ -55,7 +55,7 @@ disqusShortname = ""
       name = "R Projects"
       url = "blogs/ipsum"
 
-    #[[params.navigation.links]]
+    [[params.navigation.links]]
       name = "Elements"
       url = "elements.html"
 
@@ -194,7 +194,7 @@ disqusShortname = ""
       url= "https://www.instagram.com/lexi_su/"
       label = "Instagram"
     
-    #[[params.footer.social]]
+    [[params.footer.social]]
       icon = "fa-github"
       url= "https://www.github.com"
       label = "GitHub"
@@ -204,7 +204,7 @@ disqusShortname = ""
       url= "linkedin.com/in/xin-lexi-su-673536126"
       label = "LinkedIn"
 
-    #[[params.footer.quicklinks]]
+    [[params.footer.quicklinks]]
       text = "Design: "
       url= "https://www.html5up.net"
       alt = "HTML5 UP"
