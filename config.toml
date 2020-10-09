@@ -1,7 +1,7 @@
 # Site settings
 baseURL = "https://lexi-su-personal-portfolio.netlify.app/"
 languageCode = "en-us"
-title = "Portfolio Website of Lexi Su"
+title = "Portfolio Website of Lexi"
 theme = "forty"
 
 # Enter your tracking code to enable Google Analytics
