@@ -1,7 +1,7 @@
 # Site settings
 baseURL = "https://lexi-su-personal-portfolio.netlify.app/"
 languageCode = "en-us"
-title = "Portfolio Website for Lexi Su"
+title = "Portfolio Website of Lexi Su"
 theme = "forty"
 
 # Enter your tracking code to enable Google Analytics
@@ -38,7 +38,7 @@ disqusShortname = ""
   # Navigation Section
   [params.navigation]
     title = "Lexi Su"
-    #subtitle = "By HTML5 Up"
+    subtitle = "By HTML5 Up"
     menu = "Menu"
     # Optional logo as brand stored in img/
     # logo = "logo.png"
