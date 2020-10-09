@@ -1,7 +1,7 @@
 # Site settings
 baseURL = "http://example.org/"
 languageCode = "en-us"
-title = "Forty"
+title = "Portfolio Website for Lexi Su"
 theme = "forty"
 
 # Enter your tracking code to enable Google Analytics
@@ -19,8 +19,8 @@ disqusShortname = ""
   # CSS class.
 
   # Provide your metadata here.
-  name = "Your name"
-  description = "Your description"
+  name = "Lexi Su"
+  description = "Current MFA student at London Business School"
 
   # Link custom assets relative to /static
   custom_css = []
@@ -37,8 +37,8 @@ disqusShortname = ""
 
   # Navigation Section
   [params.navigation]
-    title = "Forty"
-    subtitle = "By HTML5 Up"
+    title = "Lexi Su"
+    #subtitle = "By HTML5 Up"
     menu = "Menu"
     # Optional logo as brand stored in img/
     # logo = "logo.png"
@@ -48,14 +48,14 @@ disqusShortname = ""
       url = "#"
 
     [[params.navigation.links]]
-      name = "Blogs"
+      name = "About Me"
       url = "blogs"
 
     [[params.navigation.links]]
-      name = "Generic Blog"
+      name = "R Projects"
       url = "blogs/ipsum"
 
-    [[params.navigation.links]]
+    #[[params.navigation.links]]
       name = "Elements"
       url = "elements.html"
 
@@ -68,12 +68,12 @@ disqusShortname = ""
 
     # Button Style 1
     [[params.navigation.button1]]
-      name = "Get Started"
+      name = "Learn more about Lexi"
       url = "blogs"
 
     # Button Style 2
     [[params.navigation.button2]]
-      name = "Log In"
+      name = "See her work"
       url = "#"
 
 
@@ -81,9 +81,9 @@ disqusShortname = ""
   [params.banner]
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
-    title = "Hi, my name is Forty"
-    subtitle = "A RESPONSIVE SITE TEMPLATE DESIGNED BY HTML5 UP\nAND RELEASED UNDER THE CREATIVE COMMONS."
-    buttonText = "Get Started"
+    title = "WELCOME TO THE PORTFOLIO WEBSITE OF LEXI SU"
+    subtitle = "An interesting soul on her way to explore machine-learning"
+    buttonText = "Have a look"
 
 
   # Tiles Section
