@@ -52,7 +52,7 @@ disqusShortname = ""
       url = "blogs"
 
     [[params.navigation.links]]
-      name = "R Projects"
+      name = "R Analysis"
       url = "blogs/ipsum"
 
     [[params.navigation.links]]
@@ -82,7 +82,7 @@ disqusShortname = ""
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
     title = "WELCOME TO THE PORTFOLIO WEBSITE OF LEXI SU"
-    subtitle = "An interesting soul on her way to explore machine-learning"
+    subtitle = "An interesting soul exploring machine-learning"
     buttonText = "Take a look"
 
 
