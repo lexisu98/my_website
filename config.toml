@@ -1,7 +1,7 @@
 # Site settings
 baseURL = "https://lexi-su-personal-portfolio.netlify.app/"
 languageCode = "en-us"
-title = "Portfolio Website of Lexi"
+title = "Portfolio Website of Lexi Su"
 theme = "forty"
 
 # Enter your tracking code to enable Google Analytics
@@ -38,7 +38,7 @@ disqusShortname = ""
   # Navigation Section
   [params.navigation]
     title = "Lexi Su"
-    subtitle = "By HTML5 Up"
+    subtitle = "done with love and patience"
     menu = "Menu"
     # Optional logo as brand stored in img/
     # logo = "logo.png"
@@ -56,7 +56,7 @@ disqusShortname = ""
       url = "blogs/ipsum"
 
     [[params.navigation.links]]
-      name = "Elements"
+      name = "Insights"
       url = "elements.html"
 
     # Add custom links here by uncommenting code below. To remove links just delete
@@ -81,7 +81,7 @@ disqusShortname = ""
   [params.banner]
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
-    title = "WELCOME TO THE PORTFOLIO WEBSITE OF LEXI SU"
+    title = "Welcome to Lexi Su's portfolio website"
     subtitle = "An interesting soul exploring machine-learning"
     buttonText = "Take a look"
 
