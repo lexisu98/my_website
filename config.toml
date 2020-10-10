@@ -82,7 +82,7 @@ disqusShortname = ""
     # To change the background image on the homepage banner, replace 'banner.jpg' in
     # the 'static/img' folder.
     title = "Welcome to Lexi Su's portfolio website"
-    subtitle = "An interesting soul exploring machine-learning"
+    subtitle = "The journey of an interesting soul exploring machine-learning"
     buttonText = "Take a look"
 
 
@@ -95,13 +95,13 @@ disqusShortname = ""
       title = "About Me"
       subtitle = "Work, Life, Personality"
       image = "pic01.jpg"
-      url = "blogs/aliquam"
+      url = "projects/HR"
 
     [[params.tiles.showcase]]
       title = "HR Analysis"
-      subtitle = "Factors that influence job salaries"
+      subtitle = "Job-related factors and their underlying relationships"
       image = "pic02.jpg"
-      url = "blogs/tempus"
+      url = "projects/HR"
 
     [[params.tiles.showcase]]
       title = "Global Trend in Life Expectancy"
@@ -128,7 +128,7 @@ disqusShortname = ""
   # Section Type Two
   [params.two]
     enable = true
-    title = "What takes you here?"
+    title = "Some insights"
     subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
     Mauris aliquet magna magna sed nunc rhoncus pharetra. 
     Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 

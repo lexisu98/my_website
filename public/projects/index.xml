@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Portfolio Website of Lexi Su</title>
-    <link>/</link>
-    <description>Recent content on Portfolio Website of Lexi Su</description>
+    <title>Projects on Portfolio Website of Lexi Su</title>
+    <link>/projects/</link>
+    <description>Recent content in Projects on Portfolio Website of Lexi Su</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 10 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HR analysis</title>
       <link>/projects/hr/</link>
@@ -15,53 +15,6 @@
       <guid>/projects/hr/</guid>
       <description>IBM data scientists created this fictitional data set to document many job-related characteristics such as employees’ ages, job satisfaction and outcomes like job salaries and attrition. Are there potential relationships between these variables? Let’s explore.
  hr_dataset &amp;lt;- read.csv(&amp;quot;datasets_1067_1925_WA_Fn-UseC_-HR-Employee-Attrition.csv&amp;quot;) glimpse(hr_dataset) ## Rows: 1,470 ## Columns: 35 ## $ Age &amp;lt;int&amp;gt; 41, 49, 37, 33, 27, 32, 59, 30, 38, 36, 35, … ## $ Attrition &amp;lt;chr&amp;gt; &amp;quot;Yes&amp;quot;, &amp;quot;No&amp;quot;, &amp;quot;Yes&amp;quot;, &amp;quot;No&amp;quot;, &amp;quot;No&amp;quot;, &amp;quot;No&amp;quot;, &amp;quot;No&amp;quot;, … ## $ BusinessTravel &amp;lt;chr&amp;gt; &amp;quot;Travel_Rarely&amp;quot;, &amp;quot;Travel_Frequently&amp;quot;, &amp;quot;Trave… ## $ DailyRate &amp;lt;int&amp;gt; 1102, 279, 1373, 1392, 591, 1005, 1324, 1358… ## $ Department &amp;lt;chr&amp;gt; &amp;quot;Sales&amp;quot;, &amp;quot;Research &amp;amp; Development&amp;quot;, &amp;quot;Research… ## $ DistanceFromHome &amp;lt;int&amp;gt; 1, 8, 2, 3, 2, 2, 3, 24, 23, 27, 16, 15, 26,… ## $ Education &amp;lt;int&amp;gt; 2, 1, 2, 4, 1, 2, 3, 1, 3, 3, 3, 2, 1, 2, 3,… ## $ EducationField &amp;lt;chr&amp;gt; &amp;quot;Life Sciences&amp;quot;, &amp;quot;Life Sciences&amp;quot;, &amp;quot;Other&amp;quot;, &amp;quot;… ## $ EmployeeCount &amp;lt;int&amp;gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,… ## $ EmployeeNumber &amp;lt;int&amp;gt; 1, 2, 4, 5, 7, 8, 10, 11, 12, 13, 14, 15, 16… ## $ EnvironmentSatisfaction &amp;lt;int&amp;gt; 2, 3, 4, 4, 1, 4, 3, 4, 4, 3, 1, 4, 1, 2, 3,… ## $ Gender &amp;lt;chr&amp;gt; &amp;quot;Female&amp;quot;, &amp;quot;Male&amp;quot;, &amp;quot;Male&amp;quot;, &amp;quot;Female&amp;quot;, &amp;quot;Male&amp;quot;, … ## $ HourlyRate &amp;lt;int&amp;gt; 94, 61, 92, 56, 40, 79, 81, 67, 44, 94, 84, … ## $ JobInvolvement &amp;lt;int&amp;gt; 3, 2, 2, 3, 3, 3, 4, 3, 2, 3, 4, 2, 3, 3, 2,… ## $ JobLevel &amp;lt;int&amp;gt; 2, 2, 1, 1, 1, 1, 1, 1, 3, 2, 1, 2, 1, 1, 1,… ## $ JobRole &amp;lt;chr&amp;gt; &amp;quot;Sales Executive&amp;quot;, &amp;quot;Research Scientist&amp;quot;, &amp;quot;La… ## $ JobSatisfaction &amp;lt;int&amp;gt; 4, 2, 3, 3, 2, 4, 1, 3, 3, 3, 2, 3, 3, 4, 3,… ## $ MaritalStatus &amp;lt;chr&amp;gt; &amp;quot;Single&amp;quot;, &amp;quot;Married&amp;quot;, &amp;quot;Single&amp;quot;, &amp;quot;Married&amp;quot;, &amp;quot;M… ## $ MonthlyIncome &amp;lt;int&amp;gt; 5993, 5130, 2090, 2909, 3468, 3068, 2670, 26… ## $ MonthlyRate &amp;lt;int&amp;gt; 19479, 24907, 2396, 23159, 16632, 11864, 996… ## $ NumCompaniesWorked &amp;lt;int&amp;gt; 8, 1, 6, 1, 9, 0, 4, 1, 0, 6, 0, 0, 1, 0, 5,… ## $ Over18 &amp;lt;chr&amp;gt; &amp;quot;Y&amp;quot;, &amp;quot;Y&amp;quot;, &amp;quot;Y&amp;quot;, &amp;quot;Y&amp;quot;, &amp;quot;Y&amp;quot;, &amp;quot;Y&amp;quot;, &amp;quot;Y&amp;quot;, &amp;quot;Y&amp;quot;, &amp;quot;Y&amp;quot;,… ## $ OverTime &amp;lt;chr&amp;gt; &amp;quot;Yes&amp;quot;, &amp;quot;No&amp;quot;, &amp;quot;Yes&amp;quot;, &amp;quot;Yes&amp;quot;, &amp;quot;No&amp;quot;, &amp;quot;No&amp;quot;, &amp;quot;Yes&amp;quot;… ## $ PercentSalaryHike &amp;lt;int&amp;gt; 11, 23, 15, 11, 12, 13, 20, 22, 21, 13, 13, … ## $ PerformanceRating &amp;lt;int&amp;gt; 3, 4, 3, 3, 3, 3, 4, 4, 4, 3, 3, 3, 3, 3, 3,… ## $ RelationshipSatisfaction &amp;lt;int&amp;gt; 1, 4, 2, 3, 4, 3, 1, 2, 2, 2, 3, 4, 4, 3, 2,… ## $ StandardHours &amp;lt;int&amp;gt; 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, … ## $ StockOptionLevel &amp;lt;int&amp;gt; 0, 1, 0, 0, 1, 0, 3, 1, 0, 2, 1, 0, 1, 1, 0,… ## $ TotalWorkingYears &amp;lt;int&amp;gt; 8, 10, 7, 8, 6, 8, 12, 1, 10, 17, 6, 10, 5, … ## $ TrainingTimesLastYear &amp;lt;int&amp;gt; 0, 3, 3, 3, 3, 2, 3, 2, 2, 3, 5, 3, 1, 2, 4,… ## $ WorkLifeBalance &amp;lt;int&amp;gt; 1, 3, 3, 3, 3, 2, 2, 3, 3, 2, 3, 3, 2, 3, 3,… ## $ YearsAtCompany &amp;lt;int&amp;gt; 6, 10, 0, 8, 2, 7, 1, 1, 9, 7, 5, 9, 5, 2, 4… ## $ YearsInCurrentRole &amp;lt;int&amp;gt; 4, 7, 0, 7, 2, 7, 0, 0, 7, 7, 4, 5, 2, 2, 2,… ## $ YearsSinceLastPromotion &amp;lt;int&amp;gt; 0, 1, 0, 3, 2, 3, 0, 0, 1, 7, 0, 0, 4, 1, 0,… ## $ YearsWithCurrManager &amp;lt;int&amp;gt; 5, 7, 0, 0, 2, 6, 0, 0, 8, 7, 3, 8, 3, 2, 3,… hr_cleaned &amp;lt;- hr_dataset %&amp;gt;% clean_names() %&amp;gt;% mutate( education = case_when( education == 1 ~ &amp;quot;Below College&amp;quot;, education == 2 ~ &amp;quot;College&amp;quot;, education == 3 ~ &amp;quot;Bachelor&amp;quot;, education == 4 ~ &amp;quot;Master&amp;quot;, education == 5 ~ &amp;quot;Doctor&amp;quot; ), environment_satisfaction = case_when( environment_satisfaction == 1 ~ &amp;quot;Low&amp;quot;, environment_satisfaction == 2 ~ &amp;quot;Medium&amp;quot;, environment_satisfaction == 3 ~ &amp;quot;High&amp;quot;, environment_satisfaction == 4 ~ &amp;quot;Very High&amp;quot; ), job_satisfaction = case_when( job_satisfaction == 1 ~ &amp;quot;Low&amp;quot;, job_satisfaction == 2 ~ &amp;quot;Medium&amp;quot;, job_satisfaction == 3 ~ &amp;quot;High&amp;quot;, job_satisfaction == 4 ~ &amp;quot;Very High&amp;quot; ), performance_rating = case_when( performance_rating == 1 ~ &amp;quot;Low&amp;quot;, performance_rating == 2 ~ &amp;quot;Good&amp;quot;, performance_rating == 3 ~ &amp;quot;Excellent&amp;quot;, performance_rating == 4 ~ &amp;quot;Outstanding&amp;quot; ), work_life_balance = case_when( work_life_balance == 1 ~ &amp;quot;Bad&amp;quot;, work_life_balance == 2 ~ &amp;quot;Good&amp;quot;, work_life_balance == 3 ~ &amp;quot;Better&amp;quot;, work_life_balance == 4 ~ &amp;quot;Best&amp;quot; ) ) %&amp;gt;% select(age, attrition, daily_rate, department, distance_from_home, education, gender, job_role,environment_satisfaction, job_satisfaction, marital_status, monthly_income, num_companies_worked, percent_salary_hike, performance_rating, total_working_years, work_life_balance, years_at_company, years_since_last_promotion) Produce a one-page summary describing this dataset.</description>
-    </item>
-    
-    <item>
-      <title>Aliquam</title>
-      <link>/blogs/aliquam/</link>
-      <pubDate>Tue, 31 Oct 2017 22:42:51 -0500</pubDate>
-      
-      <guid>/blogs/aliquam/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tempus</title>
-      <link>/blogs/tempus/</link>
-      <pubDate>Tue, 31 Oct 2017 22:26:13 -0500</pubDate>
-      
-      <guid>/blogs/tempus/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Magna</title>
-      <link>/blogs/magna/</link>
-      <pubDate>Tue, 31 Oct 2017 22:26:09 -0500</pubDate>
-      
-      <guid>/blogs/magna/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Ipsum</title>
-      <link>/blogs/ipsum/</link>
-      <pubDate>Tue, 31 Oct 2017 21:28:43 -0500</pubDate>
-      
-      <guid>/blogs/ipsum/</guid>
-      <description>Nullam et orci eu lorem consequat tincidunt vivamus et sagittis magna sed nunc rhoncus condimentum sem. In efficitur ligula tate urna. Maecenas massa sed magna lacinia magna pellentesque lorem ipsum dolor. Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis tempus.</description>
-    </item>
-    
-    <item>
-      <title>Hello R Markdown</title>
-      <link>/post/2015-07-23-r-rmarkdown/</link>
-      <pubDate>Thu, 23 Jul 2015 21:13:14 -0500</pubDate>
-      
-      <guid>/post/2015-07-23-r-rmarkdown/</guid>
-      <description>R Markdown This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
-You can embed an R code chunk like this:
-summary(cars) ## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.98 ## 3rd Qu.</description>
     </item>
     
   </channel>
