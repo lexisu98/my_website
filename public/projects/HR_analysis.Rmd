@@ -49,13 +49,13 @@ library(purrr)
 library(lubridate) #to handle dates
 ```
 
-```{r}
+```{r readdata,echo=FALSE}
 
 hr_dataset <- read.csv("datasets_1067_1925_WA_Fn-UseC_-HR-Employee-Attrition.csv")
-glimpse(hr_dataset)
 
 ```
-```{r}
+
+```{r cleandata,echo=FALSE, message = FALSE, warning = FALSE, results='hide'}
 
 hr_cleaned <- hr_dataset %>% 
   clean_names() %>% 
@@ -103,49 +103,51 @@ hr_cleaned <- hr_dataset %>%
 
 ```
 
-Produce a one-page summary describing this dataset. Here is a non-exhaustive list of questions:
-
-1. How often do people leave the company (`attrition`)
-
-```{r, attrition}
-glimpse(hr_cleaned)
-
-attrition_prop <- hr_cleaned %>% 
-  group_by(attrition)%>%
-  summarise(n=n())%>%
-  mutate(attrition_proportion=n/sum(n))
-```
-1. How are `age`, `years_at_company`, `monthly_income` and `years_since_last_promotion` distributed? can you roughly guess which of these variables is closer to Normal just by looking at summary statistics? 
-
+First, let's visualize the data by looking at some histograms.
 ```{r,distribution}
-skim(hr_cleaned)
-
 ggplot(hr_cleaned,aes(x=age))+
   geom_histogram()+
-  labs(title = "Distribution of Employee Ages", subtitle = "Most number of employees are between age 30 and 35", x = "Age", y = "Number of People")+
-  theme_minimal()+
-  theme(title = element_text(size =15,face = "bold"), axis.title.x = element_text(size = 10), axis.title.y = element_text(size = 10, angle = 90))
+  labs(title = "Distribution of Employee Ages", 
+       subtitle = "Most number of employees are between age 30 and 35", 
+       x = "Age", y = "Number of People")+
+  theme_igray()+
+  theme(title = element_text(size =12,face = "bold"),
+        axis.title.x = element_text(size = 10), 
+        axis.title.y = element_text(size = 10, angle = 90))
 
 ggplot(hr_cleaned,aes(x=years_at_company))+
   geom_histogram()+
-  labs(title = "Distribution of Years Worked at Company", subtitle = "A right-skewed distribution shows most employees have worked for very few years", x = "Years at Company", y="Number of People")+
-  theme_minimal()+
-  theme(title = element_text(size =15,face = "bold"), axis.title.x = element_text(size = 10), axis.title.y = element_text(size = 10, angle = 90))
+  labs(title = "Distribution of Years Worked at Company",
+       subtitle = "A right-skewed distribution shows most employees have worked for very few years", 
+       x = "Years at Company", y="Number of People")+
+  theme_igray()+
+  theme(title = element_text(size =12,face = "bold"),
+        axis.title.x = element_text(size = 10),
+        axis.title.y = element_text(size = 10, angle = 90))
 
 ggplot(hr_cleaned,aes(x=monthly_income))+
   geom_histogram()+
-  labs(title="Distribution of Monthly Income", subtitle = "Right-skewed distribution : most people are paid less",  x="Monthly Income", y="Number of People")+
-  theme_minimal()+
-  theme(title = element_text(size =15,face = "bold"), axis.title.x = element_text(size = 10), axis.title.y = element_text(size = 10, angle = 90))
+  labs(title="Distribution of Monthly Income", 
+       subtitle = "Right-skewed distribution : most people are paid less",  
+       x="Monthly Income", y="Number of People")+
+  theme_igray()+
+  theme(title = element_text(size =12,face = "bold"),
+        axis.title.x = element_text(size = 10),
+        axis.title.y = element_text(size = 10, angle = 90))
 
 ggplot(hr_cleaned,aes(x=years_since_last_promotion))+
   geom_histogram()+
-  labs(title="Distribution of Years since Last Promotion", subtitle = "Most number of people have not yet been promoted", x="Years since Last Promotion", y="Number of People")+
-  theme_minimal()+
-  theme(title = element_text(size =15,face = "bold"), axis.title.x = element_text(size = 10), axis.title.y = element_text(size = 10, angle = 90))
+  labs(title="Distribution of Years since Last Promotion",
+       subtitle = "Most number of people have not yet been promoted", 
+       x="Years since Last Promotion", 
+       y="Number of People")+
+  theme_igray()+
+  theme(title = element_text(size =12,face = "bold"),
+        axis.title.x = element_text(size = 10),
+        axis.title.y = element_text(size = 10, angle = 90))
 ```
 
-1. How are `job_satisfaction` and `work_life_balance` distributed? Don't just report counts, but express categories as % of total
+
 
 ```{r,distribution2}
 p1<- hr_cleaned %>%
@@ -153,58 +155,53 @@ p1<- hr_cleaned %>%
   summarise(n=n())%>%
   mutate(prop=n/sum(n))
 
-p1
-
-ggplot(p1, aes(x=reorder(job_satisfaction,-prop),y=prop))+
-         geom_bar(stat="identity")+
-  labs(title = "Proportions of Job Satisfaction", x = "Job Satisfaction", y = "Proportion")
+ggplot(p1, aes(x="",y=prop, fill = job_satisfaction))+
+         geom_bar(stat="identity",width =1)+
+  coord_polar("y", start =0)+
+  labs(title = "Proportions of Job Satisfaction", 
+       subtitle = "The majority of people have high job satisfactions")+
+  scale_fill_grey()+
+  theme(axis.text.x = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())
        
 
 ```
 
-1. Is there any relationship between monthly income and education? Monthly income and gender?
+Are we progressing toward equal pay between the two genders? Perhaps. The graph shows that men and women have almost the same income distribution in the form of a boxplot.
 
-```{r, income_education_gender} 
+```{r, income_gender} 
 
-ggplot(hr_cleaned, aes(x=monthly_income, color=education))+
-  geom_histogram(position = "dodge")+
-  labs(title = "Distribution of Income and Education", x="Monthly Income", y = "Number of People")
-
-ggplot(hr_cleaned, aes(x=monthly_income, color=gender))+
-  geom_histogram(position = "dodge")+
-  labs(title = "Distribution of Income and Gender", x="Monthly Income", y = "Number of People")
-
-
+ggplot(hr_cleaned, aes(x=reorder(gender,-monthly_income),y=monthly_income))+
+  geom_boxplot()+
+  labs(title = "Boxplot of Monthly Income for Men and Women", 
+       subtitle = "Both genders have almost equal income distribution",
+       x = "Gender", y="Monthly Income")+
+  theme_igray()
 ```
-1. Plot a boxplot of income vs job role. Make sure the highest-paid job roles appear first
+
+Monthly income can greatly vary from one job role to another. Looking at the boxplot below, managers and research directors earn the highest income, while lab technicians and sales representatives tend to be on the low end. However, for job roles that are located on the lower end, there are several outliers who earn much more than the median income level.
 ```{r, boxplot}
 ggplot(hr_cleaned, aes(x=reorder(job_role,-monthly_income),y=monthly_income))+
   geom_boxplot()+
-  labs(title = "Boxplot of Monthly Income for Each Job Role", x = "Job Roles", y="Monthly Income")
+  labs(title = "Boxplot of Monthly Income for Each Job Role", 
+       subtitle = "Managers earn the highest income, while sales representatives earn the lowest ",
+       x = "Job Roles", y="Monthly Income")+
+  theme_igray()+
+  theme(axis.text.x = element_text(angle = 30, size = 5))
   
 
 ```
 
-1. Calculate and plot a bar chart of the mean (or median?) income by education level.
 
-```{r, education_level}
-p3 <- hr_cleaned%>%
-  group_by(education)%>%
-  summarise(mean_income = mean(monthly_income))
-
-ggplot(p3, aes(x=reorder(education,-mean_income),y=mean_income))+
-  geom_bar(stat = "identity")+
-  labs(title = "Mean Income of Different Education Levels", x="Education Level", y = "Mean Income")
-
-```
-1. Plot the distribution of income by education level. Use a facet_wrap and a theme from `ggthemes`
-
+We can see that doctors have the least number of people. Almost all education levels follow a right-skewed distribution, meaning that regardless of their education level, the majority of them still earn less income below 100,000.
 ```{r, income_educationlevel}
 ggplot(hr_cleaned, aes(x=monthly_income))+
   geom_histogram()+
   facet_wrap(~education)+
-  theme_light()+
-  labs(title = "Distribution of Income by Education Level", x= "Monthly Income", y = "Count")
+  theme_igray()+
+  labs(title = "Distribution of Income by Education Level", 
+       subtitle = "All education levels follow a right-skewed distribution",
+       x= "Monthly Income", y = "Number of People")+
+  theme(axis.text.x = element_text(angle = 30, size = 5))
 
 ```
 
@@ -213,25 +210,11 @@ ggplot(hr_cleaned, aes(x=monthly_income))+
 ggplot(hr_cleaned, aes(x=age, y=monthly_income))+
   geom_bar(stat = "identity")+
   facet_wrap(~job_role)+
-  theme_light()+
-  labs(title = "Distribution of Income by Age", x= "Age", y = "Income")
+  theme_igray()+
+  labs(title = "Distribution of Income by Age", 
+       subtitle = "Managers tend to be older",
+       x= "Age", y = "Income")
 
 ```
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
-```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
 

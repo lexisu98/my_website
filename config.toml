@@ -94,25 +94,25 @@ disqusShortname = ""
     [[params.tiles.showcase]]
       title = "About Me"
       subtitle = "Work, Life, Personality"
-      image = "pic01.jpg"
+      image = "pic4.jpg"
       url = "projects/HR"
 
     [[params.tiles.showcase]]
       title = "HR Analysis"
       subtitle = "Job-related factors and their underlying relationships"
-      image = "pic02.jpg"
+      image = "pic1.jpg"
       url = "projects/HR"
 
     [[params.tiles.showcase]]
       title = "Global Trend in Life Expectancy"
-      subtitle = "People now live longer than fifty years ago"
-      image = "pic03.jpg"
+      subtitle = "How life expectancy has changed in regions worldwide"
+      image = "pic2.jpg"
       url = "blogs/magna"
 
     [[params.tiles.showcase]]
       title = "Comparison in IMDB Movie Ratings"
       subtitle = "Does Steven Spielberg earn higher movie ratings than Tim Burton?"
-      image = "pic04.jpg"
+      image = "pic3.jpg"
       url = "blogs/ipsum"
 
 
