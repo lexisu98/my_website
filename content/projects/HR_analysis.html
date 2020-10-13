@@ -13,12 +13,15 @@ title: HR analysis
 
 
 
-<blockquote>
 <p>IBM data scientists created this fictitional data set to document many job-related characteristics such as employees’ ages, job satisfaction and outcomes like job salaries and attrition. Are there potential relationships between these variables?<br/>
 Let’s explore.</p>
-</blockquote>
+<div id="distribution-of-some-statistics" class="section level2">
+<h2>Distribution of Some Statistics</h2>
 <p>First, let’s visualize the data by looking at some histograms.</p>
-<pre class="r"><code>ggplot(hr_cleaned,aes(x=age))+
+<div id="employee-ages" class="section level3">
+<h3>Employee ages</h3>
+<pre class="r"><code>#Employee ages
+ggplot(hr_cleaned,aes(x=age))+
   geom_histogram()+
   labs(title = &quot;Distribution of Employee Ages&quot;, 
        subtitle = &quot;Most number of employees are between age 30 and 35&quot;, 
@@ -27,8 +30,12 @@ Let’s explore.</p>
   theme(title = element_text(size =12,face = &quot;bold&quot;),
         axis.title.x = element_text(size = 10), 
         axis.title.y = element_text(size = 10, angle = 90))</code></pre>
-<p><img src="/projects/HR_analysis_files/figure-html/distribution-1.png" width="648" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>ggplot(hr_cleaned,aes(x=years_at_company))+
+<p><img src="/projects/HR_analysis_files/figure-html/ages-1.png" width="648" style="display: block; margin: auto;" /></p>
+</div>
+<div id="years-worked-at-company" class="section level3">
+<h3>Years worked at company</h3>
+<pre class="r"><code>#Years worked at company
+ggplot(hr_cleaned,aes(x=years_at_company))+
   geom_histogram()+
   labs(title = &quot;Distribution of Years Worked at Company&quot;,
        subtitle = &quot;A right-skewed distribution shows most employees have worked for very few years&quot;, 
@@ -37,8 +44,12 @@ Let’s explore.</p>
   theme(title = element_text(size =12,face = &quot;bold&quot;),
         axis.title.x = element_text(size = 10),
         axis.title.y = element_text(size = 10, angle = 90))</code></pre>
-<p><img src="/projects/HR_analysis_files/figure-html/distribution-2.png" width="648" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>ggplot(hr_cleaned,aes(x=monthly_income))+
+<p><img src="/projects/HR_analysis_files/figure-html/yearsworked-1.png" width="648" style="display: block; margin: auto;" /></p>
+</div>
+<div id="monthly-income" class="section level3">
+<h3>Monthly income</h3>
+<pre class="r"><code>#monthly income
+ggplot(hr_cleaned,aes(x=monthly_income))+
   geom_histogram()+
   labs(title=&quot;Distribution of Monthly Income&quot;, 
        subtitle = &quot;Right-skewed distribution : most people are paid less&quot;,  
@@ -47,8 +58,12 @@ Let’s explore.</p>
   theme(title = element_text(size =12,face = &quot;bold&quot;),
         axis.title.x = element_text(size = 10),
         axis.title.y = element_text(size = 10, angle = 90))</code></pre>
-<p><img src="/projects/HR_analysis_files/figure-html/distribution-3.png" width="648" style="display: block; margin: auto;" /></p>
-<pre class="r"><code>ggplot(hr_cleaned,aes(x=years_since_last_promotion))+
+<p><img src="/projects/HR_analysis_files/figure-html/monthlyincome-1.png" width="648" style="display: block; margin: auto;" /></p>
+</div>
+<div id="years-since-last-promotion" class="section level3">
+<h3>Years since last promotion</h3>
+<pre class="r"><code>#Years since last promotion
+ggplot(hr_cleaned,aes(x=years_since_last_promotion))+
   geom_histogram()+
   labs(title=&quot;Distribution of Years since Last Promotion&quot;,
        subtitle = &quot;Most number of people have not yet been promoted&quot;, 
@@ -58,12 +73,16 @@ Let’s explore.</p>
   theme(title = element_text(size =12,face = &quot;bold&quot;),
         axis.title.x = element_text(size = 10),
         axis.title.y = element_text(size = 10, angle = 90))</code></pre>
-<p><img src="/projects/HR_analysis_files/figure-html/distribution-4.png" width="648" style="display: block; margin: auto;" /></p>
+<p><img src="/projects/HR_analysis_files/figure-html/yearspromotion-1.png" width="648" style="display: block; margin: auto;" /></p>
+</div>
+<div id="job-satisfaction" class="section level3">
+<h3>Job satisfaction</h3>
 <pre class="r"><code>p1&lt;- hr_cleaned %&gt;%
   group_by(job_satisfaction)%&gt;%
   summarise(n=n())%&gt;%
   mutate(prop=n/sum(n))
 
+#job satisfaction
 ggplot(p1, aes(x=&quot;&quot;,y=prop, fill = job_satisfaction))+
          geom_bar(stat=&quot;identity&quot;,width =1)+
   coord_polar(&quot;y&quot;, start =0)+
@@ -72,7 +91,12 @@ ggplot(p1, aes(x=&quot;&quot;,y=prop, fill = job_satisfaction))+
   scale_fill_grey()+
   theme(axis.text.x = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())</code></pre>
 <p><img src="/projects/HR_analysis_files/figure-html/distribution2-1.png" width="648" style="display: block; margin: auto;" /></p>
-<p>Are we progressing toward equal pay between the two genders? Perhaps. The graph shows that men and women have almost the same income distribution in the form of a boxplot.</p>
+</div>
+</div>
+<div id="relationship-between-variables" class="section level2">
+<h2>Relationship between variables</h2>
+<div id="income-by-gender" class="section level3">
+<h3>Income by gender</h3>
 <pre class="r"><code>ggplot(hr_cleaned, aes(x=reorder(gender,-monthly_income),y=monthly_income))+
   geom_boxplot()+
   labs(title = &quot;Boxplot of Monthly Income for Men and Women&quot;, 
@@ -80,7 +104,10 @@ ggplot(p1, aes(x=&quot;&quot;,y=prop, fill = job_satisfaction))+
        x = &quot;Gender&quot;, y=&quot;Monthly Income&quot;)+
   theme_igray()</code></pre>
 <p><img src="/projects/HR_analysis_files/figure-html/income_gender-1.png" width="648" style="display: block; margin: auto;" /></p>
-<p>Monthly income can greatly vary from one job role to another. Looking at the boxplot below, managers and research directors earn the highest income, while lab technicians and sales representatives tend to be on the low end. However, for job roles that are located on the lower end, there are several outliers who earn much more than the median income level.</p>
+<p>Are we progressing toward equal pay between the two genders? Perhaps. The graph shows that men and women have almost the same income distribution in the form of a boxplot.</p>
+</div>
+<div id="monthly-income-by-job-role" class="section level3">
+<h3>Monthly income by job role</h3>
 <pre class="r"><code>ggplot(hr_cleaned, aes(x=reorder(job_role,-monthly_income),y=monthly_income))+
   geom_boxplot()+
   labs(title = &quot;Boxplot of Monthly Income for Each Job Role&quot;, 
@@ -89,7 +116,10 @@ ggplot(p1, aes(x=&quot;&quot;,y=prop, fill = job_satisfaction))+
   theme_igray()+
   theme(axis.text.x = element_text(angle = 30, size = 5))</code></pre>
 <p><img src="/projects/HR_analysis_files/figure-html/boxplot-1.png" width="648" style="display: block; margin: auto;" /></p>
-<p>We can see that doctors have the least number of people. Almost all education levels follow a right-skewed distribution, meaning that regardless of their education level, the majority of them still earn less income below 100,000.</p>
+<p>Monthly income can greatly vary from one job role to another. Looking at the boxplot below, managers and research directors earn the highest income, while lab technicians and sales representatives tend to be on the low end. However, for job roles that are located on the lower end, there are several outliers who earn much more than the median income level.</p>
+</div>
+<div id="income-faceted-by-education-level" class="section level3">
+<h3>Income faceted by education level</h3>
 <pre class="r"><code>ggplot(hr_cleaned, aes(x=monthly_income))+
   geom_histogram()+
   facet_wrap(~education)+
@@ -99,9 +129,10 @@ ggplot(p1, aes(x=&quot;&quot;,y=prop, fill = job_satisfaction))+
        x= &quot;Monthly Income&quot;, y = &quot;Number of People&quot;)+
   theme(axis.text.x = element_text(angle = 30, size = 5))</code></pre>
 <p><img src="/projects/HR_analysis_files/figure-html/income_educationlevel-1.png" width="648" style="display: block; margin: auto;" /></p>
-<ol style="list-style-type: decimal">
-<li>Plot income vs age, faceted by <code>job_role</code></li>
-</ol>
+<p>We can see that doctors have the least number of people. Almost all education levels follow a right-skewed distribution, meaning that regardless of their education level, the majority of them still earn less income below 100,000.</p>
+</div>
+<div id="income-vs.-age-faceted-by-job-role" class="section level3">
+<h3>Income vs. Age, faceted by Job role</h3>
 <pre class="r"><code>ggplot(hr_cleaned, aes(x=age, y=monthly_income))+
   geom_bar(stat = &quot;identity&quot;)+
   facet_wrap(~job_role)+
@@ -110,3 +141,6 @@ ggplot(p1, aes(x=&quot;&quot;,y=prop, fill = job_satisfaction))+
        subtitle = &quot;Managers tend to be older&quot;,
        x= &quot;Age&quot;, y = &quot;Income&quot;)</code></pre>
 <p><img src="/projects/HR_analysis_files/figure-html/income_age-1.png" width="648" style="display: block; margin: auto;" /></p>
+<p>Managers and research directors tend to be older, as they exhibit left-skewed distributions.</p>
+</div>
+</div>

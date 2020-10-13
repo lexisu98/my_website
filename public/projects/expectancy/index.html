@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+
+    <head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Current MFA student at London Business School">
+	<meta name="author" content="Lexi Su">
+	<meta name="generator" content="Hugo 0.76.4" />
+	<title>Analysis of Life Expectancy &middot; Portfolio Website of Lexi Su</title>
+	<!-- Stylesheets -->
+	
+	<link rel="stylesheet" href="/css/main.css"/>
+	
+	
+
+	
+
+	<!-- Custom Fonts -->
+	<link href="/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="js/ie/html5shiv.js"></script>
+	<script src="js/ie/html5shiv.jsrespond.min.js"></script>
+	<![endif]-->
+</head>
+
+    <body>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Header -->
+    <header id="header" class="alt">
+        <a href="/" class="logo"><strong>Lexi Su</strong> <span>done with love and patience</span></a>
+        <nav>
+            <a href="#menu">Menu</a>
+        </nav>
+    </header>
+
+<!-- Menu -->
+    <nav id="menu">
+        <ul class="links">
+            
+                <li><a href="/">Home</a></li>
+            
+                <li><a href="/blogs">About Me</a></li>
+            
+                <li><a href="/blogs/ipsum">R Analysis</a></li>
+            
+                <li><a href="/elements.html">Insights</a></li>
+            
+
+        </ul>
+        <ul class="actions vertical">
+            
+                <li><a href="/blogs" class="button special fit">Learn more about Lexi</a></li>
+            
+            
+                <li><a href="/" class="button fit">See her work</a></li>
+            
+        </ul>
+    </nav>
+
+        <!-- Main -->
+            <div id="main" class="alt">
+
+                
+                    <section id="one">
+                        <div class="inner">
+                            <header class="major">
+                                <h1>Analysis of Life Expectancy</h1>
+                            </header>
+                            
+                                <span class="image main"><img src="/img/projects/pic09.jpg" alt="" /></span>
+                            
+                            
+
+
+<div id="relationship-between-hiv-infection-and-life-expectancy" class="section level2">
+<h2>Relationship between HIV Infection and Life Expectancy</h2>
+<pre class="r"><code>  ggplot(exp_hiv_worldbank,aes(x= Infection_Rate,y = Life_Expectancy, na.rm = TRUE))+
+  geom_point(na.rm = TRUE, col = &quot;black&quot;, cex = 0.5, alpha = 0.5)+
+  facet_wrap(~region, ncol=3,nrow=3, scales = &quot;free_x&quot;)+
+  geom_smooth(method = &quot;lm&quot;, na.rm = TRUE )+
+  theme_igray()+
+  labs(title = &quot;Life Expectancy Likely Decreases with HIV Prevalence across Regions&quot;, 
+       subtitle = &quot;Sub-Saharan Africa and Latin America exhihit high HIV Infections&quot;, 
+       x = &quot;Infection Rate&quot;, y = &quot;Life Expectancy&quot;)</code></pre>
+<p><img src="/projects/Life_expectancy_files/figure-html/hiv_life_exp-1.png" width="648" style="display: block; margin: auto;" />
+The life expectancy and HIV prevalence have negative relationships in all regions around the globe. However, the relationship is most prominent in Sub-Saharan Africa and it has much higher HIV infection rates than other regions.</p>
+</div>
+<div id="relationship-between-fertility-rate-and-gdp-per-capita" class="section level2">
+<h2>Relationship between Fertility Rate and GDP per Capita</h2>
+<pre class="r"><code>  ggplot(exp_hiv_worldbank,aes(x= Fertility_Rate,y = GDP_per_Capita, na.rm = TRUE))+
+  geom_point(na.rm = TRUE, col = &quot;black&quot;, cex = 0.5, alpha = 0.5)+
+  facet_wrap(~region, ncol=3,nrow=3, scales = &quot;free_y&quot;)+
+  geom_smooth(method = &quot;auto&quot;, na.rm = TRUE )+
+  theme_gray()+
+  labs(title = &quot;GDP per Capita likely Decreases with Fertility Rates across Regions&quot;, subtitle = &quot;GDP per Capita have large variations within regions, however&quot;, x = &quot;Fertility Rate&quot;, y = &quot;GDP per Capita&quot;)</code></pre>
+<p><img src="/projects/Life_expectancy_files/figure-html/fertility_GDP_per_capita-1.png" width="648" style="display: block; margin: auto;" />
+We can observe from the graphs that GDP per Capita generally decreases with fertility rate, with a few exceptions in Europe &amp; Central Asia, where in the lower end of fertility rates tend to contribute to a higher GDP per Capita. This is likely due to the fact that many European countries have problems with aging societies, so their GDP per capita might increase with higher fertility rates to boost economic production. The overall negative relationship could be explained by the fact that with a fixed amount of GDP, GDP per capita and population are inversely related, so countries with low fertility rates tend to have less population and therefore higher GDP per Capita.</p>
+</div>
+<div id="change-in-mortality-rates-by-regions" class="section level2">
+<h2>Change in Mortality Rates by Regions</h2>
+<pre class="r"><code>ggplot(exp_hiv_worldbank,aes(x= Year, y = Mortality_Rate, na.rm = TRUE))+
+  geom_point(na.rm = TRUE, col = &quot;black&quot;, cex = 0.5, alpha = 0.5)+
+  facet_wrap(~region, ncol=3,nrow=3, scales = &quot;free_y&quot;)+
+  geom_smooth(method = &quot;auto&quot;, na.rm = TRUE )+
+  theme_gray()+
+  labs(title = &quot;Mortality Decreased Over the Years in All Regions&quot;, subtitle = &quot;North America sees the fastest improvement&quot;, x = &quot;Year&quot;, y = &quot;Mortality Rate&quot;)</code></pre>
+<p><img src="/projects/Life_expectancy_files/figure-html/mortality_rate_region-1.png" width="648" style="display: block; margin: auto;" />
+The mortality rate has improved(decreased) across all regions from 1960 to 2016. North America sees the greatest improvement, although its mortality rate was very low in 1960 compared to other regions.</p>
+</div>
+<div id="relationship-between-school-enrollment-and-fertility-rate" class="section level2">
+<h2>Relationship Between School Enrollment and Fertility Rate</h2>
+<pre class="r"><code>ggplot(exp_hiv_worldbank,aes(x= School_Enrollment, y = Fertility_Rate, na.rm = TRUE))+
+  geom_point(na.rm = TRUE, col = &quot;black&quot;, cex = 0.5, alpha = 0.5)+
+  facet_wrap(~region, ncol=3,nrow=3, scales = &quot;free_x&quot;)+
+  geom_smooth(method = &quot;lm&quot;, na.rm = TRUE )+
+  theme_gray()+
+  labs(title = &quot;There is a Relatively Negative Relationship Between School Enrollment and Fertility Rate&quot;, subtitle = &quot;The Relationship is Less Prominent in Europe and Central Asia&quot;, x = &quot;School Enrollment&quot;, y = &quot;Fertility Rate&quot;)</code></pre>
+<p><img src="/projects/Life_expectancy_files/figure-html/school_fertility-1.png" width="648" style="display: block; margin: auto;" />
+We can observe from the graphs that fertility rate and school enrollment are somewhat negatively related. However, it is less prominent in the Europe and Central Asia region as well as North America, possibly due to the fact that these regions consists of many developed countries where fertility rates are generally low and people can better afford education for children. For the rest of the regions, the negative relationship can be explained by the financial burden associated with more children, so a smaller proportion of them can attend primary schools.</p>
+</div>
+
+                        </div>
+                    </section>
+            <!-- Disqus Inject -->
+                
+            </div>
+            
+        <!-- Footer -->
+            
+        </div>
+
+    <!-- Scripts -->
+        <!-- Scripts -->
+    <!-- jQuery -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/jquery.scrolly.min.js"></script>
+    <script src="/js/jquery.scrollex.min.js"></script>
+    <script src="/js/skel.min.js"></script>
+    <script src="/js/util.js"></script>
+
+    
+
+    <!-- Main JS -->
+    <script src="/js/main.js"></script>
+
+    
+
+    
+
+    </body>
+</html>

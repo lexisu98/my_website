@@ -95,7 +95,7 @@ disqusShortname = ""
       title = "About Me"
       subtitle = "Work, Life, Personality"
       image = "pic4.jpg"
-      url = "projects/HR"
+      url = "projects/biography"
 
     [[params.tiles.showcase]]
       title = "HR Analysis"
@@ -107,13 +107,13 @@ disqusShortname = ""
       title = "Global Trend in Life Expectancy"
       subtitle = "How life expectancy has changed in regions worldwide"
       image = "pic2.jpg"
-      url = "blogs/magna"
+      url = "projects/Expectancy"
 
     [[params.tiles.showcase]]
       title = "Comparison in IMDB Movie Ratings"
-      subtitle = "Does Steven Spielberg earn higher movie ratings than Tim Burton?"
+      subtitle = "Do Steven Spielberg and Tim Burton have the same average IMDB ratings?"
       image = "pic3.jpg"
-      url = "blogs/ipsum"
+      url = "projects/Movies"
 
 
     

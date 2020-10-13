@@ -6,7 +6,48 @@
     <description>Recent content in Projects on Portfolio Website of Lexi Su</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>/projects/biography/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/biography/</guid>
+      <description>“You only live once, but if you do it right, once is enough.”
+ Hi! I am Lexi Su from China.  Welcome to my portfolio website, and here I will introduce myself to you a little more…
+Some Key Words  Passionate   Persistent   Self-challenger   Time-manager   “Social Animal”   Education I am currently pursuing a Masters Degree in Financial Analysis student at London Business School.</description>
+    </item>
+    
+    <item>
+      <title>About Me</title>
+      <link>/projects/biography/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/biography/</guid>
+      <description>“You only live once, but if you do it right, once is enough.”
+ Hi! I am Lexi Su from China.  Welcome to my portfolio website, and here I will introduce myself to you a little more…
+Some Key Words  Passionate   Persistent   Self-challenger   Time-manager   “Social Animal”    Education I am currently pursuing a Masters Degree in Financial Analysis student at London Business School.</description>
+    </item>
+    
+    <item>
+      <title>Analysis of Life Expectancy</title>
+      <link>/projects/expectancy/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/expectancy/</guid>
+      <description>Relationship between HIV Infection and Life Expectancy  ggplot(exp_hiv_worldbank,aes(x= Infection_Rate,y = Life_Expectancy, na.rm = TRUE))+ geom_point(na.rm = TRUE, col = &amp;quot;black&amp;quot;, cex = 0.5, alpha = 0.5)+ facet_wrap(~region, ncol=3,nrow=3, scales = &amp;quot;free_x&amp;quot;)+ geom_smooth(method = &amp;quot;lm&amp;quot;, na.rm = TRUE )+ theme_igray()+ labs(title = &amp;quot;Life Expectancy Likely Decreases with HIV Prevalence across Regions&amp;quot;, subtitle = &amp;quot;Sub-Saharan Africa and Latin America exhihit high HIV Infections&amp;quot;, x = &amp;quot;Infection Rate&amp;quot;, y = &amp;quot;Life Expectancy&amp;quot;) The life expectancy and HIV prevalence have negative relationships in all regions around the globe.</description>
+    </item>
+    
+    <item>
+      <title>Movies analysis</title>
+      <link>/projects/movies/</link>
+      <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/projects/movies/</guid>
+      <description>We have a series of movies data including their name, director, genre, and IMDB ratings. And we are interested in finding whether the ratings for movies of two directors have the same average? In other words, are they equally appealing to audiences in terms of ratings? Let’s take Steven Spielberg and Tim Burton for example and compare the average ratings of their movies using hypothesis testing.
+95% Confidence Intervals First, we want to build the 95% confidence intervals for the mean IMDB ratings of Steven Spielberg and Tim Burton to see if there is any overlap.</description>
+    </item>
+    
     <item>
       <title>HR analysis</title>
       <link>/projects/hr/</link>
@@ -14,8 +55,8 @@
       
       <guid>/projects/hr/</guid>
       <description>IBM data scientists created this fictitional data set to document many job-related characteristics such as employees’ ages, job satisfaction and outcomes like job salaries and attrition. Are there potential relationships between these variables? Let’s explore.
- First, let’s visualize the data by looking at some histograms.
-ggplot(hr_cleaned,aes(x=age))+ geom_histogram()+ labs(title = &amp;quot;Distribution of Employee Ages&amp;quot;, subtitle = &amp;quot;Most number of employees are between age 30 and 35&amp;quot;, x = &amp;quot;Age&amp;quot;, y = &amp;quot;Number of People&amp;quot;)+ theme_igray()+ theme(title = element_text(size =12,face = &amp;quot;bold&amp;quot;), axis.</description>
+Distribution of Some Statistics First, let’s visualize the data by looking at some histograms.
+Employee ages #Employee ages ggplot(hr_cleaned,aes(x=age))+ geom_histogram()+ labs(title = &amp;quot;Distribution of Employee Ages&amp;quot;, subtitle = &amp;quot;Most number of employees are between age 30 and 35&amp;quot;, x = &amp;quot;Age&amp;quot;, y = &amp;quot;Number of People&amp;quot;)+ theme_igray()+ theme(title = element_text(size =12,face = &amp;quot;bold&amp;quot;), axis.</description>
     </item>
     
   </channel>

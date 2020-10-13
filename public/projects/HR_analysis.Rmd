@@ -11,10 +11,9 @@ slug: HR
 title: HR analysis
 ---
 
->
 IBM data scientists created this fictitional data set to document many job-related characteristics such as employees' ages, job satisfaction and outcomes like job salaries and attrition. Are there potential relationships between these variables?<br/>
 Let's explore.
->
+
 
 ```{r, setup, echo=FALSE}
 knitr::opts_chunk$set(
@@ -103,8 +102,12 @@ hr_cleaned <- hr_dataset %>%
 
 ```
 
+## Distribution of Some Statistics
 First, let's visualize the data by looking at some histograms.
-```{r,distribution}
+
+### Employee ages
+```{r,ages}
+#Employee ages
 ggplot(hr_cleaned,aes(x=age))+
   geom_histogram()+
   labs(title = "Distribution of Employee Ages", 
@@ -114,7 +117,11 @@ ggplot(hr_cleaned,aes(x=age))+
   theme(title = element_text(size =12,face = "bold"),
         axis.title.x = element_text(size = 10), 
         axis.title.y = element_text(size = 10, angle = 90))
+```
 
+### Years worked at company
+```{r,yearsworked}
+#Years worked at company
 ggplot(hr_cleaned,aes(x=years_at_company))+
   geom_histogram()+
   labs(title = "Distribution of Years Worked at Company",
@@ -124,7 +131,11 @@ ggplot(hr_cleaned,aes(x=years_at_company))+
   theme(title = element_text(size =12,face = "bold"),
         axis.title.x = element_text(size = 10),
         axis.title.y = element_text(size = 10, angle = 90))
+```
 
+### Monthly income
+```{r,monthlyincome}
+#monthly income
 ggplot(hr_cleaned,aes(x=monthly_income))+
   geom_histogram()+
   labs(title="Distribution of Monthly Income", 
@@ -134,7 +145,11 @@ ggplot(hr_cleaned,aes(x=monthly_income))+
   theme(title = element_text(size =12,face = "bold"),
         axis.title.x = element_text(size = 10),
         axis.title.y = element_text(size = 10, angle = 90))
+```
 
+### Years since last promotion
+```{r, yearspromotion}
+#Years since last promotion
 ggplot(hr_cleaned,aes(x=years_since_last_promotion))+
   geom_histogram()+
   labs(title="Distribution of Years since Last Promotion",
@@ -148,13 +163,14 @@ ggplot(hr_cleaned,aes(x=years_since_last_promotion))+
 ```
 
 
-
+### Job satisfaction
 ```{r,distribution2}
 p1<- hr_cleaned %>%
   group_by(job_satisfaction)%>%
   summarise(n=n())%>%
   mutate(prop=n/sum(n))
 
+#job satisfaction
 ggplot(p1, aes(x="",y=prop, fill = job_satisfaction))+
          geom_bar(stat="identity",width =1)+
   coord_polar("y", start =0)+
@@ -163,11 +179,11 @@ ggplot(p1, aes(x="",y=prop, fill = job_satisfaction))+
   scale_fill_grey()+
   theme(axis.text.x = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())
        
-
 ```
 
-Are we progressing toward equal pay between the two genders? Perhaps. The graph shows that men and women have almost the same income distribution in the form of a boxplot.
+## Relationship between variables
 
+### Income by gender
 ```{r, income_gender} 
 
 ggplot(hr_cleaned, aes(x=reorder(gender,-monthly_income),y=monthly_income))+
@@ -178,7 +194,10 @@ ggplot(hr_cleaned, aes(x=reorder(gender,-monthly_income),y=monthly_income))+
   theme_igray()
 ```
 
-Monthly income can greatly vary from one job role to another. Looking at the boxplot below, managers and research directors earn the highest income, while lab technicians and sales representatives tend to be on the low end. However, for job roles that are located on the lower end, there are several outliers who earn much more than the median income level.
+Are we progressing toward equal pay between the two genders? Perhaps. The graph shows that men and women have almost the same income distribution in the form of a boxplot.
+
+
+### Monthly income by job role
 ```{r, boxplot}
 ggplot(hr_cleaned, aes(x=reorder(job_role,-monthly_income),y=monthly_income))+
   geom_boxplot()+
@@ -187,12 +206,12 @@ ggplot(hr_cleaned, aes(x=reorder(job_role,-monthly_income),y=monthly_income))+
        x = "Job Roles", y="Monthly Income")+
   theme_igray()+
   theme(axis.text.x = element_text(angle = 30, size = 5))
-  
 
 ```
 
+Monthly income can greatly vary from one job role to another. Looking at the boxplot below, managers and research directors earn the highest income, while lab technicians and sales representatives tend to be on the low end. However, for job roles that are located on the lower end, there are several outliers who earn much more than the median income level.
 
-We can see that doctors have the least number of people. Almost all education levels follow a right-skewed distribution, meaning that regardless of their education level, the majority of them still earn less income below 100,000.
+### Income faceted by education level
 ```{r, income_educationlevel}
 ggplot(hr_cleaned, aes(x=monthly_income))+
   geom_histogram()+
@@ -205,7 +224,9 @@ ggplot(hr_cleaned, aes(x=monthly_income))+
 
 ```
 
-1. Plot income vs age, faceted by `job_role`
+We can see that doctors have the least number of people. Almost all education levels follow a right-skewed distribution, meaning that regardless of their education level, the majority of them still earn less income below 100,000.
+
+### Income vs. Age, faceted by Job role
 ```{r, income_age}
 ggplot(hr_cleaned, aes(x=age, y=monthly_income))+
   geom_bar(stat = "identity")+
@@ -217,4 +238,5 @@ ggplot(hr_cleaned, aes(x=age, y=monthly_income))+
 
 ```
 
+Managers and research directors tend to be older, as they exhibit left-skewed distributions. 
 
