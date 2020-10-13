@@ -48,16 +48,16 @@ disqusShortname = ""
       url = "#"
 
     [[params.navigation.links]]
-      name = "About Me"
-      url = "blogs"
+      name = "HR Analysis"
+      url = "projects/HR"
 
     [[params.navigation.links]]
-      name = "R Analysis"
-      url = "blogs/ipsum"
+      name = "Gapminder"
+      url = "projects/Expectancy"
 
     [[params.navigation.links]]
-      name = "Insights"
-      url = "elements.html"
+      name = "Movies Analysis"
+      url = "projects/Movies"
 
     # Add custom links here by uncommenting code below. To remove links just delete
     # the [[params.navigation.links]] map associated with that link. Copy and paste
@@ -69,12 +69,8 @@ disqusShortname = ""
     # Button Style 1
     [[params.navigation.button1]]
       name = "Learn more about Lexi"
-      url = "blogs"
+      url = "biography"
 
-    # Button Style 2
-    [[params.navigation.button2]]
-      name = "See her work"
-      url = "#"
 
 
   # Banner section
@@ -104,8 +100,8 @@ disqusShortname = ""
       url = "projects/HR"
 
     [[params.tiles.showcase]]
-      title = "Global Trend in Life Expectancy"
-      subtitle = "How life expectancy has changed in regions worldwide"
+      title = "Gapminder"
+      subtitle = "Examination of life expectancy, GDP per capita and other social factors"
       image = "pic2.jpg"
       url = "projects/Expectancy"
 
@@ -129,13 +125,16 @@ disqusShortname = ""
   [params.two]
     enable = true
     title = "Some insights"
-    subtitle = """Nullam et orci eu lorem consequat tincidunt vivamus et sagittis libero. 
-    Mauris aliquet magna magna sed nunc rhoncus pharetra. 
-    Pellentesque condimentum sem. In efficitur ligula tate urna. Maecenas laoreet massa vel lacinia pellentesque lorem ipsum dolor. 
-    Nullam et orci eu lorem consequat tincidunt. Vivamus et sagittis libero.
-    Mauris aliquet magna magna sed nunc rhoncus amet pharetra et feugiat tempus."""
-    buttonText = "Get Started"
-    url = "blogs"
+    subtitle = """
+    In a digital age where everything evolves quickly, it becomes even more important to adapt to machine-learning.
+    Codes, programs and data play a much heavier role in both processing information and making decisions.
+    These changes were rather unfathomable a few decades ago...
+    But more revolutions and destructions are still awaiting.
+    Therefore, as a human soul who just embarked on her journey to explore the way these digits and codes work, 
+    occasionally I still feel overwhelmed by the intricacy of machine languages (might become easier later on, hopefully).
+    But I believe that as I keep learning and growing, I will be able to optimize the efficiency of combining human intelligence with machine productivity. """
+    buttonText = "Take a look"
+    url = "projects"
 
 
   # Contact section

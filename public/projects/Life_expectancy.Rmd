@@ -3,12 +3,12 @@ categories:
 - ""
 - ""
 date: "2020-10-13"
-description: change in life expectancy
+description: Analysis of life expectancy, fertility rate, GDP and much more
 draft: false
-image: pic09.jpg
+image: image2.png
 keywords: ""
 slug: Expectancy
-title: Analysis of Life Expectancy
+title: Gapminder
 ---
 
 ```{r, setup, include=FALSE}
@@ -92,6 +92,7 @@ library(countrycode)
        x = "Infection Rate", y = "Life Expectancy")
 
 ```
+
 The life expectancy and HIV prevalence have negative relationships in all regions around the globe. However, the relationship is most prominent in Sub-Saharan Africa and it has much higher HIV infection rates than other regions.
 
 ## Relationship between Fertility Rate and GDP per Capita
@@ -101,9 +102,12 @@ The life expectancy and HIV prevalence have negative relationships in all region
   facet_wrap(~region, ncol=3,nrow=3, scales = "free_y")+
   geom_smooth(method = "auto", na.rm = TRUE )+
   theme_gray()+
-  labs(title = "GDP per Capita likely Decreases with Fertility Rates across Regions", subtitle = "GDP per Capita have large variations within regions, however", x = "Fertility Rate", y = "GDP per Capita")
+  labs(title = "GDP per Capita likely Decreases with Fertility Rates across Regions",
+       subtitle = "GDP per Capita have large variations within regions, however", 
+       x = "Fertility Rate", y = "GDP per Capita")
 
 ```
+
 We can observe from the graphs that GDP per Capita generally decreases with fertility rate, with a few exceptions in Europe & Central Asia, where in the lower end of fertility rates tend to contribute to a higher GDP per Capita. This is likely due to the fact that many European countries have problems with aging societies, so their GDP per capita might increase with higher fertility rates to boost economic production. The overall negative relationship could be explained by the fact that with a fixed amount of GDP, GDP per capita and population are inversely related, so countries with low fertility rates tend to have less population and therefore higher GDP per Capita. 
 
 
@@ -117,10 +121,13 @@ ggplot(exp_hiv_worldbank,aes(x= Year, y = Mortality_Rate, na.rm = TRUE))+
   facet_wrap(~region, ncol=3,nrow=3, scales = "free_y")+
   geom_smooth(method = "auto", na.rm = TRUE )+
   theme_gray()+
-  labs(title = "Mortality Decreased Over the Years in All Regions", subtitle = "North America sees the fastest improvement", x = "Year", y = "Mortality Rate")
+  labs(title = "Mortality Decreased Over the Years in All Regions", 
+       subtitle = "North America sees the fastest improvement", 
+       x = "Year", y = "Mortality Rate")
   
 
 ```
+
 The mortality rate has improved(decreased) across all regions from 1960 to 2016. North America sees the greatest improvement, although its mortality rate was very low in 1960 compared to other regions. 
 
 ## Relationship Between School Enrollment and Fertility Rate
@@ -131,6 +138,9 @@ ggplot(exp_hiv_worldbank,aes(x= School_Enrollment, y = Fertility_Rate, na.rm = T
   facet_wrap(~region, ncol=3,nrow=3, scales = "free_x")+
   geom_smooth(method = "lm", na.rm = TRUE )+
   theme_gray()+
-  labs(title = "There is a Relatively Negative Relationship Between School Enrollment and Fertility Rate", subtitle = "The Relationship is Less Prominent in Europe and Central Asia", x = "School Enrollment", y = "Fertility Rate")
+  labs(title = "There is a Relatively Negative Relationship Between School Enrollment and Fertility Rate", 
+       subtitle = "The Relationship is Less Prominent in Europe and Central Asia", 
+       x = "School Enrollment", y = "Fertility Rate")
 ```
+
 We can observe from the graphs that fertility rate and school enrollment are somewhat negatively related. However, it is less prominent in the Europe and Central Asia region as well as North America, possibly due to the fact that these regions consists of many developed countries where fertility rates are generally low and people can better afford education for children. For the rest of the regions, the negative relationship can be explained by the financial burden associated with more children, so a smaller proportion of them can attend primary schools.

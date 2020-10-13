@@ -5,7 +5,7 @@ categories:
 date: "2020-10-13"
 description: "Movies analysis"
 draft: false
-image: ""
+image: image.jpg
 keywords: ""
 slug: Movies
 title: Movies analysis

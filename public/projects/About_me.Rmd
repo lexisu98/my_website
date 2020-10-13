@@ -3,9 +3,9 @@ categories:
 - ""
 - ""
 date: "2020-10-13"
-description: my biography
+description: A short biography of me, who I am, what I do, and what I like
 draft: false
-image: pic09.jpg
+image: image3.jpg
 keywords: ""
 slug: biography
 title: About Me
