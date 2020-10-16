@@ -3,13 +3,14 @@ categories:
 - ""
 - ""
 date: "2020-10-13"
-description: A short biography of me, who I am, what I do, and what I like
+description: A short biography of me, who I am, what I do, and what I like.
 draft: false
 image: image3.jpg
 keywords: ""
 slug: biography
 title: About Me
 ---
+
 
 >“You only live once, but if you do it right, once is enough.”
 >
@@ -23,7 +24,9 @@ Welcome to my portfolio website, and here I will introduce myself to you a littl
 <li> Self-challenger </li>
 <li> Time-manager </li>
 <li> "Social Animal" </li>
+ <ul>
 
+\newline
 ## Education
 I am currently pursuing a Masters Degree in Financial Analysis student at London Business School. I recently graduated from the University of Southern California in the U.S. <br/>
 By the time I graduate from LBS in 2021, I will have accumulated eight years of experience in studying abroad, which added a unique blend of western and oriental culture to my background.
@@ -41,5 +44,7 @@ Here is a non-exhaustive list of my hobbies and interests:
 <li> exploring good food </li>
 <li> music (R&B, K-R&B) </li>
 <li> fashion </li>
+ <ul>
 
-My biography doesn't stop here. Please check out some of my works!
+\newline
+### My biography doesn't stop here. Please check out some of my works!

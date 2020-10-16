@@ -3,7 +3,7 @@ categories:
 - ""
 - ""
 date: "2020-10-10"
-description: Analysis of Job-related factors and their potential relationships
+description: Analysis of Job-related factors and their potential relationships.
 draft: false
 image: image1.jpg
 keywords: ""
@@ -20,7 +20,7 @@ Let’s explore.</p>
 <p>First, let’s visualize the data by looking at some histograms.</p>
 <div id="employee-ages" class="section level3">
 <h3>Employee ages</h3>
-<pre class="r"><code>#Employee ages
+<pre class="r"><code># Employee ages
 ggplot(hr_cleaned,aes(x=age))+
   geom_histogram()+
   labs(title = &quot;Distribution of Employee Ages&quot;, 
@@ -80,7 +80,8 @@ ggplot(hr_cleaned,aes(x=years_since_last_promotion))+
 <pre class="r"><code>p1&lt;- hr_cleaned %&gt;%
   group_by(job_satisfaction)%&gt;%
   summarise(n=n())%&gt;%
-  mutate(prop=n/sum(n))
+  mutate(prop=n/sum(n),
+         job_satisfaction = fct_relevel(job_satisfaction,&quot;Very High&quot;, &quot;High&quot;, &quot;Medium&quot;, &quot;Low&quot;))
 
 #job satisfaction
 ggplot(p1, aes(x=&quot;&quot;,y=prop, fill = job_satisfaction))+
@@ -89,7 +90,10 @@ ggplot(p1, aes(x=&quot;&quot;,y=prop, fill = job_satisfaction))+
   labs(title = &quot;Proportions of Job Satisfaction&quot;, 
        subtitle = &quot;The majority of people have high job satisfactions&quot;)+
   scale_fill_grey()+
-  theme(axis.text.x = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())</code></pre>
+  theme(title = element_text (size = 12),
+        axis.text.x = element_blank(), 
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank())</code></pre>
 <p><img src="/projects/HR_analysis_files/figure-html/distribution2-1.png" width="648" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -104,7 +108,7 @@ ggplot(p1, aes(x=&quot;&quot;,y=prop, fill = job_satisfaction))+
        x = &quot;Gender&quot;, y=&quot;Monthly Income&quot;)+
   theme_igray()</code></pre>
 <p><img src="/projects/HR_analysis_files/figure-html/income_gender-1.png" width="648" style="display: block; margin: auto;" /></p>
-<p>Are we progressing toward equal pay between the two genders? Perhaps. The graph shows that men and women have almost the same income distribution in the form of a boxplot.</p>
+<p>Are we progressing toward equal pay between the two genders? Perhaps. The graph shows that men and women have almost the same income distribution in the form of a boxplot.But men seem to have more outliers that are greater than 1.5*IQR.</p>
 </div>
 <div id="monthly-income-by-job-role" class="section level3">
 <h3>Monthly income by job role</h3>

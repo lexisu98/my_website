@@ -37,7 +37,7 @@ disqusShortname = ""
 
   # Navigation Section
   [params.navigation]
-    title = "Lexi Su"
+    title = "Lexi"
     subtitle = "done with love and patience"
     menu = "Menu"
     # Optional logo as brand stored in img/
@@ -69,7 +69,7 @@ disqusShortname = ""
     # Button Style 1
     [[params.navigation.button1]]
       name = "Learn more about Lexi"
-      url = "biography"
+      url = "projects/biography"
 
 
 
@@ -124,15 +124,15 @@ disqusShortname = ""
   # Section Type Two
   [params.two]
     enable = true
-    title = "Some insights"
+    title = "Share my Thoughts"
     subtitle = """
     In a digital age where everything evolves quickly, it becomes even more important to adapt to machine-learning.
     Codes, programs and data play a much heavier role in both processing information and making decisions.
     These changes were rather unfathomable a few decades ago...
     But more revolutions and destructions are still awaiting.
-    Therefore, as a human soul who just embarked on her journey to explore the way these digits and codes work, 
+    As a human soul who just embarked on her journey to explore the way these digits and codes work, 
     occasionally I still feel overwhelmed by the intricacy of machine languages (might become easier later on, hopefully).
-    But I believe that as I keep learning and growing, I will be able to optimize the efficiency of combining human intelligence with machine productivity. """
+    But don't mind the mistakes and immaturity, I am still learning. """
     buttonText = "Take a look"
     url = "projects"
 
@@ -173,15 +173,10 @@ disqusShortname = ""
     country = "China"
 
   # Footer section
-  #[params.footer]
+  [params.footer]
     enable = true
-    copyright = "Company Name"
+    copyright = "Lexi Su"
 
-    # Uses font awesome icons
-    #[[params.footer.social]]
-      icon = "fa-wechat"
-      url= "https://www.twitter.com"
-      label = "Twitter"
 
     [[params.footer.social]]
       icon = "fa-facebook"
@@ -195,15 +190,11 @@ disqusShortname = ""
     
     [[params.footer.social]]
       icon = "fa-github"
-      url= "https://www.github.com"
+      url= "https://github.com/lexisu98"
       label = "GitHub"
 
     [[params.footer.social]]
       icon = "fa-linkedin"
-      url= "linkedin.com/in/xin-lexi-su-673536126"
+      url= "https://linkedin.com/in/xin-lexi-su-673536126"
       label = "LinkedIn"
 
-    [[params.footer.quicklinks]]
-      text = "Design: "
-      url= "https://www.html5up.net"
-      alt = "HTML5 UP"

@@ -1,0 +1,9 @@
+---
+date: "2020-10-14"
+draft: false
+image: image4.jpg
+slug: projects
+title: Brief Overview
+---
+
+If you are interested in me or any of the works shown below, please explore further...

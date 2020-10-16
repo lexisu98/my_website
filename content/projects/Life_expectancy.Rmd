@@ -3,13 +3,15 @@ categories:
 - ""
 - ""
 date: "2020-10-13"
-description: Analysis of life expectancy, fertility rate, GDP and much more
+description: Analysis of life expectancy, fertility rate, GDP and other socio-economic factors.
 draft: false
 image: image2.png
 keywords: ""
 slug: Expectancy
 title: Gapminder
 ---
+
+Gapminder allows us to gain insight about several social-economic factors such as life expectancy and GDP per capita for all countries around the globe. It is also meaningful to find out if there are correlations between these factors to understand the overall trend and make better decisions in the future.
 
 ```{r, setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -89,7 +91,8 @@ library(countrycode)
   theme_igray()+
   labs(title = "Life Expectancy Likely Decreases with HIV Prevalence across Regions", 
        subtitle = "Sub-Saharan Africa and Latin America exhihit high HIV Infections", 
-       x = "Infection Rate", y = "Life Expectancy")
+       x = "Infection Rate", y = "Life Expectancy")+
+  theme(axis.text.x = element_text(angle = 45))
 
 ```
 
@@ -101,7 +104,7 @@ The life expectancy and HIV prevalence have negative relationships in all region
   geom_point(na.rm = TRUE, col = "black", cex = 0.5, alpha = 0.5)+
   facet_wrap(~region, ncol=3,nrow=3, scales = "free_y")+
   geom_smooth(method = "auto", na.rm = TRUE )+
-  theme_gray()+
+  theme_igray()+
   labs(title = "GDP per Capita likely Decreases with Fertility Rates across Regions",
        subtitle = "GDP per Capita have large variations within regions, however", 
        x = "Fertility Rate", y = "GDP per Capita")
@@ -120,7 +123,7 @@ ggplot(exp_hiv_worldbank,aes(x= Year, y = Mortality_Rate, na.rm = TRUE))+
   geom_point(na.rm = TRUE, col = "black", cex = 0.5, alpha = 0.5)+
   facet_wrap(~region, ncol=3,nrow=3, scales = "free_y")+
   geom_smooth(method = "auto", na.rm = TRUE )+
-  theme_gray()+
+  theme_igray()+
   labs(title = "Mortality Decreased Over the Years in All Regions", 
        subtitle = "North America sees the fastest improvement", 
        x = "Year", y = "Mortality Rate")
@@ -137,7 +140,7 @@ ggplot(exp_hiv_worldbank,aes(x= School_Enrollment, y = Fertility_Rate, na.rm = T
   geom_point(na.rm = TRUE, col = "black", cex = 0.5, alpha = 0.5)+
   facet_wrap(~region, ncol=3,nrow=3, scales = "free_x")+
   geom_smooth(method = "lm", na.rm = TRUE )+
-  theme_gray()+
+  theme_igray()+
   labs(title = "There is a Relatively Negative Relationship Between School Enrollment and Fertility Rate", 
        subtitle = "The Relationship is Less Prominent in Europe and Central Asia", 
        x = "School Enrollment", y = "Fertility Rate")

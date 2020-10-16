@@ -3,7 +3,7 @@ categories:
 - ""
 - ""
 date: "2020-10-13"
-description: "Movies analysis"
+description: "Compare average IMDB ratings for movies directed by Steven Spielberg and Tim Burton."
 draft: false
 image: image.jpg
 keywords: ""

@@ -1,0 +1,156 @@
+---
+categories:
+- ""
+- ""
+date: "2020-10-13"
+description: "Compare average IMDB ratings for movies directed by Steven Spielberg and Tim Burton "
+draft: false
+image: image.jpg
+keywords: ""
+slug: Movies
+title: Movies analysis
+---
+
+We have a series of movies data including their name, director, genre, and IMDB ratings. And we are interested in finding whether the ratings for movies of two directors have the same average? In other words, are they equally appealing to audiences in terms of ratings? Let's take Steven Spielberg and Tim Burton for example and compare the average ratings of their movies using hypothesis testing.
+
+
+```{r, setupmovies, echo=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE, 
+  warning = FALSE, 
+  tidy=FALSE,     # display code as typed
+  size="small")   # slightly smaller font for code
+options(digits = 3)
+
+# default figure size
+knitr::opts_chunk$set(
+  fig.width=6.75, 
+  fig.height=6.75,
+  fig.align = "center"
+)
+```
+
+```{r load-libraries, echo=FALSE}
+library(tidyverse)  # Load ggplot2, dplyr, and all the other tidyverse packages
+library(mosaic)
+library(ggthemes)
+library(GGally)
+library(readxl)
+library(here)
+library(skimr)
+library(janitor)
+library(broom)
+library(tidyquant)
+library(infer)
+library(openintro)
+library(tidyquant)
+```
+
+
+
+```{r, moviedata,echo=FALSE, message = FALSE, warning = FALSE, results='hide'}
+movies <- read_csv("movies.csv")
+glimpse(movies)
+
+```
+
+## 95% Confidence Intervals
+
+First, we want to build the 95% confidence intervals for the mean IMDB ratings of Steven Spielberg and Tim Burton to see if there is any overlap.
+
+```{r,CI}
+
+# 95% confidence intervals
+Spielberg_Burton <- movies %>%
+  filter(director %in% c("Steven Spielberg","Tim Burton"))%>%
+  group_by(director)%>%
+  summarise(mean=mean(rating),
+            count=n(),
+            t_critical=qt(0.975,count-1),
+            se = sd(rating)/sqrt(count),
+            margin_of_error = t_critical*se,
+            ci_low = mean - margin_of_error,
+            ci_high = mean + margin_of_error)
+
+ggplot(Spielberg_Burton,aes(x=mean,y=reorder(director,mean),colour = director))+
+  geom_errorbar(width=0.05,aes(xmin=ci_low,xmax=ci_high),size=2)+
+  geom_point(aes(x=mean),size = 5)+
+  geom_rect(aes(xmin = max(ci_low),xmax=min(ci_high),ymin=-Inf,ymax=Inf),
+            fill="gray",colour="gray",alpha=0.3)+
+  theme_bw()+
+    geom_text(aes(x=mean,label=round(mean,digits=2)), 
+              size = 6, vjust = 2)+
+  geom_text(aes(x=ci_low,label=round(ci_low,digits=2)),
+            size=5, vjust=2)+
+  geom_text(aes(x=ci_high,label=round(ci_high,digits=2)),
+            size = 5, vjust=2)+
+  labs(title="Do Spielberg and Burton have the same IMDB ratings?", 
+       subtitle = "95% confidence intervals overlap", x="Mean IMDB Rating", y ="")+
+  theme(plot.title = element_text(size = 12, face = "bold"), 
+        axis.text = element_text(size = 10), 
+        axis.title.x = element_text(size=10),
+        legend.position = "none")
+ 
+```
+
+The overlap in 95% confidence intervals for the mean ratings means that we cannot yet say that movies of these two directors have different mean ratings.<br/>
+Therefore, we need to conduct further tests to find out.
+
+## T-test command
+First, we conduct a t-test using the existing sample and let's see the summary statistics yielded by the t.test command.
+
+
+```{r,ttest}
+#t-test command
+S_B_ratings<- movies%>%
+  filter(director %in% c("Steven Spielberg", "Tim Burton"))%>%
+  select(director,rating)
+
+  t.test(S_B_ratings$rating ~ S_B_ratings$director,
+         mu=0,alt = "two.sided",conf=0.95,var.eq=FALSE)
+
+```
+
+The t.test command result shows that the t-statistic is 2.7144, and the p-value is 0.01078, which are both indicators that the true difference in mean IMDB ratings between movies of Spielberg and Tim Burton is not zero. In addition, the 95% confidence interval also does not include zero.<br/>
+
+## Hypothesis Testing using 'infer' package
+Other than doing a t-test, we can also arrive at our conclusion using hypothesis testing. In this case, <br/>
+
+<li>Null Hypothesis (H0): movies of Spielberg and Burton have the same mean IMDB ratings. </li>
+<li>Alternative Hypothesis (H1): movies of Spielberg and Burton have different mean IMDB ratings. </li>
+
+We then build a simulation using the infer package in and see if it supports our previous conclusion.
+
+```{r,infer}
+#t-test using "infer" package
+null_ratings <- S_B_ratings %>%
+  specify(rating ~ director) %>%
+  hypothesize(null = "independence") %>%
+  generate(reps = 1000, type = "permute") %>%
+  calculate(stat = "diff in means", 
+            order = c("Steven Spielberg", "Tim Burton"))
+
+null_ratings%>%
+  visualise()+
+  labs(title = "Differences in Spielberg and Burton movie ratings in a world where there is really no difference",
+       subtitle = "Observed difference in sample means marked in red", 
+       x="Average ratings of Spielberg movies - Average ratings of Burton movies", 
+       y = "Count")+
+  theme_bw()+
+  theme(plot.title = element_text(size = 15, face = "bold"),
+        plot.subtitle = element_text(size = 10),
+        axis.text = element_text(size = 10), 
+        axis.title = element_text(size=10))+
+  geom_rect(aes(xmin=0.64,xmax = Inf, ymin=-Inf,ymax=Inf),
+            fill = "lightyellow", colour = "lightyellow", alpha=0.05)+
+  geom_rect(aes(xmin=-Inf,xmax = -0.64, ymin=-Inf,ymax=Inf), 
+            fill = "lightyellow", colour = "lightyellow", alpha=0.05)+
+  geom_vline(aes(xintercept=0.64),colour = "red", size = 2)
+
+p_value <- null_ratings%>%
+  get_pvalue(obs_stat = 0.64, direction = "both")
+
+p_value
+```
+As we can see from the simulation results, the p-value is 0.01, which is also less than 0.05. Moreover, the graph also shows that the observed difference of mean movie ratings, as in our sample data, is 0.64. The number rather appears on the outer-right of this histogram, providing us with further evidence that we can reject the null hypothesis. That is, the true difference in mean IMDB ratings for movies directed by Steven Spielberg and Tim Burton, is different and therefore not zero.
+

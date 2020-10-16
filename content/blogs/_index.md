@@ -1,9 +1,9 @@
 ---
 date: "2017-10-31T22:27:21-05:00"
 draft: false
-image: pic02.jpg
+image: image4.jpg
 slug: blogs
-title: Lifestyle
+title: Projects and Me
 ---
 
-My blogs about technology and lifestyle.
+My portfolio website that tells you about me and my works.

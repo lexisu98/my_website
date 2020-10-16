@@ -3,7 +3,7 @@ categories:
 - ""
 - ""
 date: "2020-10-10"
-description: Analysis of Job-related factors and their potential relationships
+description: Analysis of Job-related factors and their potential relationships.
 draft: false
 image: image1.jpg
 keywords: ""
@@ -107,7 +107,7 @@ First, let's visualize the data by looking at some histograms.
 
 ### Employee ages
 ```{r,ages}
-#Employee ages
+# Employee ages
 ggplot(hr_cleaned,aes(x=age))+
   geom_histogram()+
   labs(title = "Distribution of Employee Ages", 
@@ -168,7 +168,8 @@ ggplot(hr_cleaned,aes(x=years_since_last_promotion))+
 p1<- hr_cleaned %>%
   group_by(job_satisfaction)%>%
   summarise(n=n())%>%
-  mutate(prop=n/sum(n))
+  mutate(prop=n/sum(n),
+         job_satisfaction = fct_relevel(job_satisfaction,"Very High", "High", "Medium", "Low"))
 
 #job satisfaction
 ggplot(p1, aes(x="",y=prop, fill = job_satisfaction))+
@@ -177,7 +178,10 @@ ggplot(p1, aes(x="",y=prop, fill = job_satisfaction))+
   labs(title = "Proportions of Job Satisfaction", 
        subtitle = "The majority of people have high job satisfactions")+
   scale_fill_grey()+
-  theme(axis.text.x = element_blank(), axis.title.x = element_blank(),axis.title.y = element_blank())
+  theme(title = element_text (size = 12),
+        axis.text.x = element_blank(), 
+        axis.title.x = element_blank(),
+        axis.title.y = element_blank())
        
 ```
 
@@ -194,7 +198,7 @@ ggplot(hr_cleaned, aes(x=reorder(gender,-monthly_income),y=monthly_income))+
   theme_igray()
 ```
 
-Are we progressing toward equal pay between the two genders? Perhaps. The graph shows that men and women have almost the same income distribution in the form of a boxplot.
+Are we progressing toward equal pay between the two genders? Perhaps. The graph shows that men and women have almost the same income distribution in the form of a boxplot.But men seem to have more outliers that are greater than 1.5*IQR.
 
 
 ### Monthly income by job role

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Projects on Portfolio Website of Lexi Su</title>
+    <title>Brief Overview on Portfolio Website of Lexi Su</title>
     <link>/projects/</link>
-    <description>Recent content in Projects on Portfolio Website of Lexi Su</description>
+    <description>Recent content in Brief Overview on Portfolio Website of Lexi Su</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 13 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 14 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About Me</title>
       <link>/projects/biography/</link>
@@ -15,7 +15,7 @@
       <guid>/projects/biography/</guid>
       <description>“You only live once, but if you do it right, once is enough.”
  Hi! I am Lexi Su from China.  Welcome to my portfolio website, and here I will introduce myself to you a little more…
-Some Key Words  Passionate   Persistent   Self-challenger   Time-manager   “Social Animal”   Education I am currently pursuing a Masters Degree in Financial Analysis student at London Business School.</description>
+Some Key Words  Passionate   Persistent   Self-challenger   Time-manager   “Social Animal”    Education I am currently pursuing a Masters Degree in Financial Analysis student at London Business School.</description>
     </item>
     
     <item>
@@ -24,7 +24,8 @@ Some Key Words  Passionate   Persistent   Self-challenger   Time-manager   “So
       <pubDate>Tue, 13 Oct 2020 00:00:00 +0000</pubDate>
       
       <guid>/projects/expectancy/</guid>
-      <description>Relationship between HIV Infection and Life Expectancy  ggplot(exp_hiv_worldbank,aes(x= Infection_Rate,y = Life_Expectancy, na.rm = TRUE))+ geom_point(na.rm = TRUE, col = &amp;quot;black&amp;quot;, cex = 0.5, alpha = 0.5)+ facet_wrap(~region, ncol=3,nrow=3, scales = &amp;quot;free_x&amp;quot;)+ geom_smooth(method = &amp;quot;lm&amp;quot;, na.rm = TRUE )+ theme_igray()+ labs(title = &amp;quot;Life Expectancy Likely Decreases with HIV Prevalence across Regions&amp;quot;, subtitle = &amp;quot;Sub-Saharan Africa and Latin America exhihit high HIV Infections&amp;quot;, x = &amp;quot;Infection Rate&amp;quot;, y = &amp;quot;Life Expectancy&amp;quot;) The life expectancy and HIV prevalence have negative relationships in all regions around the globe.</description>
+      <description>Gapminder allows us to gain insight about several social-economic factors such as life expectancy and GDP per capita for all countries around the globe. It is also meaningful to find out if there are correlations between these factors to understand the overall trend and make better decisions in the future.
+Relationship between HIV Infection and Life Expectancy  ggplot(exp_hiv_worldbank,aes(x= Infection_Rate,y = Life_Expectancy, na.rm = TRUE))+ geom_point(na.rm = TRUE, col = &amp;quot;black&amp;quot;, cex = 0.</description>
     </item>
     
     <item>
@@ -45,7 +46,7 @@ Some Key Words  Passionate   Persistent   Self-challenger   Time-manager   “So
       <guid>/projects/hr/</guid>
       <description>IBM data scientists created this fictitional data set to document many job-related characteristics such as employees’ ages, job satisfaction and outcomes like job salaries and attrition. Are there potential relationships between these variables? Let’s explore.
 Distribution of Some Statistics First, let’s visualize the data by looking at some histograms.
-Employee ages #Employee ages ggplot(hr_cleaned,aes(x=age))+ geom_histogram()+ labs(title = &amp;quot;Distribution of Employee Ages&amp;quot;, subtitle = &amp;quot;Most number of employees are between age 30 and 35&amp;quot;, x = &amp;quot;Age&amp;quot;, y = &amp;quot;Number of People&amp;quot;)+ theme_igray()+ theme(title = element_text(size =12,face = &amp;quot;bold&amp;quot;), axis.</description>
+Employee ages # Employee ages ggplot(hr_cleaned,aes(x=age))+ geom_histogram()+ labs(title = &amp;quot;Distribution of Employee Ages&amp;quot;, subtitle = &amp;quot;Most number of employees are between age 30 and 35&amp;quot;, x = &amp;quot;Age&amp;quot;, y = &amp;quot;Number of People&amp;quot;)+ theme_igray()+ theme(title = element_text(size =12,face = &amp;quot;bold&amp;quot;), axis.</description>
     </item>
     
   </channel>
