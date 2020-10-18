@@ -84,15 +84,18 @@ library(countrycode)
 
 ## Relationship between HIV Infection and Life Expectancy
 ```{r,hiv_life_exp}
-  ggplot(exp_hiv_worldbank,aes(x= Infection_Rate,y = Life_Expectancy, na.rm = TRUE))+
+  exp_hiv_worldbank %>% 
+  filter(!is.na(Life_Expectancy)) %>% 
+  ggplot(aes(x = Infection_Rate,
+             y = Life_Expectancy))+
   geom_point(na.rm = TRUE, col = "black", cex = 0.5, alpha = 0.5)+
   facet_wrap(~region, ncol=3,nrow=3, scales = "free_x")+
   geom_smooth(method = "lm", na.rm = TRUE )+
-  theme_igray()+
+  theme_bw()+
   labs(title = "Life Expectancy Likely Decreases with HIV Prevalence across Regions", 
        subtitle = "Sub-Saharan Africa and Latin America exhihit high HIV Infections", 
-       x = "Infection Rate", y = "Life Expectancy")+
-  theme(axis.text.x = element_text(angle = 45))
+       x = "Infection Rate", 
+       y = "Life Expectancy")
 
 ```
 
@@ -100,15 +103,18 @@ The life expectancy and HIV prevalence have negative relationships in all region
 
 ## Relationship between Fertility Rate and GDP per Capita
 ```{r,fertility_GDP_per_capita}
-  ggplot(exp_hiv_worldbank,aes(x= Fertility_Rate,y = GDP_per_Capita, na.rm = TRUE))+
+  exp_hiv_worldbank %>% 
+  filter(!is.na(region)) %>% 
+  ggplot(aes(x= Fertility_Rate,
+             y = GDP_per_Capita))+
   geom_point(na.rm = TRUE, col = "black", cex = 0.5, alpha = 0.5)+
   facet_wrap(~region, ncol=3,nrow=3, scales = "free_y")+
   geom_smooth(method = "auto", na.rm = TRUE )+
-  theme_igray()+
-  labs(title = "GDP per Capita likely Decreases with Fertility Rates across Regions",
+  theme_gray()+
+  labs(title = "GDP per Capita likely Decreases with Fertility Rates across Regions", 
        subtitle = "GDP per Capita have large variations within regions, however", 
-       x = "Fertility Rate", y = "GDP per Capita")
-
+       x = "Fertility Rate", 
+       y = "GDP per Capita")
 ```
 
 We can observe from the graphs that GDP per Capita generally decreases with fertility rate, with a few exceptions in Europe & Central Asia, where in the lower end of fertility rates tend to contribute to a higher GDP per Capita. This is likely due to the fact that many European countries have problems with aging societies, so their GDP per capita might increase with higher fertility rates to boost economic production. The overall negative relationship could be explained by the fact that with a fixed amount of GDP, GDP per capita and population are inversely related, so countries with low fertility rates tend to have less population and therefore higher GDP per Capita. 
@@ -119,14 +125,18 @@ We can observe from the graphs that GDP per Capita generally decreases with fert
 
 ```{r,mortality_rate_region}
   
-ggplot(exp_hiv_worldbank,aes(x= Year, y = Mortality_Rate, na.rm = TRUE))+
+exp_hiv_worldbank %>% 
+  filter(!is.na(region)) %>% 
+  ggplot(aes(x= Year, 
+             y = Mortality_Rate))+
   geom_point(na.rm = TRUE, col = "black", cex = 0.5, alpha = 0.5)+
   facet_wrap(~region, ncol=3,nrow=3, scales = "free_y")+
   geom_smooth(method = "auto", na.rm = TRUE )+
-  theme_igray()+
+  theme_gray()+
   labs(title = "Mortality Decreased Over the Years in All Regions", 
        subtitle = "North America sees the fastest improvement", 
-       x = "Year", y = "Mortality Rate")
+       x = "Year", 
+       y = "Mortality Rate")
   
 
 ```
@@ -136,14 +146,18 @@ The mortality rate has improved(decreased) across all regions from 1960 to 2016.
 ## Relationship Between School Enrollment and Fertility Rate
 
 ```{r,school_fertility}
-ggplot(exp_hiv_worldbank,aes(x= School_Enrollment, y = Fertility_Rate, na.rm = TRUE))+
+  exp_hiv_worldbank %>% 
+  filter(!is.na(region)) %>% 
+  ggplot(aes(x= School_Enrollment, 
+             y = Fertility_Rate))+
   geom_point(na.rm = TRUE, col = "black", cex = 0.5, alpha = 0.5)+
   facet_wrap(~region, ncol=3,nrow=3, scales = "free_x")+
   geom_smooth(method = "lm", na.rm = TRUE )+
-  theme_igray()+
+  theme_gray()+
   labs(title = "There is a Relatively Negative Relationship Between School Enrollment and Fertility Rate", 
        subtitle = "The Relationship is Less Prominent in Europe and Central Asia", 
-       x = "School Enrollment", y = "Fertility Rate")
+       x = "School Enrollment", 
+       y = "Fertility Rate")
 ```
 
 We can observe from the graphs that fertility rate and school enrollment are somewhat negatively related. However, it is less prominent in the Europe and Central Asia region as well as North America, possibly due to the fact that these regions consists of many developed countries where fertility rates are generally low and people can better afford education for children. For the rest of the regions, the negative relationship can be explained by the financial burden associated with more children, so a smaller proportion of them can attend primary schools.

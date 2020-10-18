@@ -25,7 +25,7 @@ Some Key Words  Passionate   Persistent   Self-challenger   Time-manager   “So
       
       <guid>/projects/expectancy/</guid>
       <description>Gapminder allows us to gain insight about several social-economic factors such as life expectancy and GDP per capita for all countries around the globe. It is also meaningful to find out if there are correlations between these factors to understand the overall trend and make better decisions in the future.
-Relationship between HIV Infection and Life Expectancy  ggplot(exp_hiv_worldbank,aes(x= Infection_Rate,y = Life_Expectancy, na.rm = TRUE))+ geom_point(na.rm = TRUE, col = &amp;quot;black&amp;quot;, cex = 0.</description>
+Relationship between HIV Infection and Life Expectancy  exp_hiv_worldbank %&amp;gt;% filter(!is.na(Life_Expectancy)) %&amp;gt;% ggplot(aes(x = Infection_Rate, y = Life_Expectancy))+ geom_point(na.rm = TRUE, col = &amp;quot;black&amp;quot;, cex = 0.</description>
     </item>
     
     <item>
