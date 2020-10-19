@@ -91,7 +91,7 @@ library(countrycode)
   geom_point(na.rm = TRUE, col = "black", cex = 0.5, alpha = 0.5)+
   facet_wrap(~region, ncol=3,nrow=3, scales = "free_x")+
   geom_smooth(method = "lm", na.rm = TRUE )+
-  theme_bw()+
+  theme_igray()+
   labs(title = "Life Expectancy Likely Decreases with HIV Prevalence across Regions", 
        subtitle = "Sub-Saharan Africa and Latin America exhihit high HIV Infections", 
        x = "Infection Rate", 
@@ -110,7 +110,7 @@ The life expectancy and HIV prevalence have negative relationships in all region
   geom_point(na.rm = TRUE, col = "black", cex = 0.5, alpha = 0.5)+
   facet_wrap(~region, ncol=3,nrow=3, scales = "free_y")+
   geom_smooth(method = "auto", na.rm = TRUE )+
-  theme_gray()+
+  theme_igray()+
   labs(title = "GDP per Capita likely Decreases with Fertility Rates across Regions", 
        subtitle = "GDP per Capita have large variations within regions, however", 
        x = "Fertility Rate", 
@@ -132,7 +132,7 @@ exp_hiv_worldbank %>%
   geom_point(na.rm = TRUE, col = "black", cex = 0.5, alpha = 0.5)+
   facet_wrap(~region, ncol=3,nrow=3, scales = "free_y")+
   geom_smooth(method = "auto", na.rm = TRUE )+
-  theme_gray()+
+  theme_igray()+
   labs(title = "Mortality Decreased Over the Years in All Regions", 
        subtitle = "North America sees the fastest improvement", 
        x = "Year", 
@@ -153,7 +153,7 @@ The mortality rate has improved(decreased) across all regions from 1960 to 2016.
   geom_point(na.rm = TRUE, col = "black", cex = 0.5, alpha = 0.5)+
   facet_wrap(~region, ncol=3,nrow=3, scales = "free_x")+
   geom_smooth(method = "lm", na.rm = TRUE )+
-  theme_gray()+
+  theme_igray()+
   labs(title = "There is a Relatively Negative Relationship Between School Enrollment and Fertility Rate", 
        subtitle = "The Relationship is Less Prominent in Europe and Central Asia", 
        x = "School Enrollment", 
